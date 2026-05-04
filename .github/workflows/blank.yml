@@ -1,3 +1,4 @@
+# NOTE: Only run this workflow when the Markdown docs are updated!!!
 # This is a basic workflow to help you get started with Actions
 
 name: CI
