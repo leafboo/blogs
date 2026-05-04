@@ -25,16 +25,19 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4 # clones my git repo to the runner so that it can perform stuff
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      # Download hugo to the runner
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: | # A pipe means to run the commands below as multi-line string
-          echo Add other actions to build,
-          echo test, and deploy your project.
-          
-      - name: Check current branch
-        run: git branch
+      # Print the version of hugo
+      - name: Print hugo version
+        run: hugo version
 
+
+      # Runs the command to make the static files and put it in the public directory
+
+      # Go to the public directory and push changes to the submodule repo
+
+      # Go back to the parent repo and update it to point to the new commit of the submodule repo
