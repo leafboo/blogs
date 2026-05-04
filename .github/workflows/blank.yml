@@ -31,13 +31,15 @@ jobs:
         with:
           hugo-version: 'latest'
 
-      # Print the version of hugo
-      - name: Print hugo version
-        run: hugo version
-
-
       # Runs the command to make the static files and put it in the public directory
+      - name: Build the static files
+        run: hugo -t contrast-hugo
 
       # Go to the public directory and push changes to the submodule repo
+      - name: Push static files to submodule repo
+        run: |
+          cd public
+          git commit -a -m "Update from CI workflow in blogs repository"
+          git push 
 
       # Go back to the parent repo and update it to point to the new commit of the submodule repo
