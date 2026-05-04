@@ -23,7 +23,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4 # clones my git repo to the runner so that it can perform stuff
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -34,4 +34,7 @@ jobs:
         run: | # A pipe means to run the commands below as multi-line string
           echo Add other actions to build,
           echo test, and deploy your project.
+          
+      - name: Check current branch
+        run: git branch
 
