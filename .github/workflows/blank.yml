@@ -39,6 +39,8 @@ jobs:
       - name: Push static files to submodule repo
         run: |
           cd public
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
           git commit -a -m "Update from CI workflow in blogs repository"
           git push 
 
